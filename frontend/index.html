@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anivex - Trusted Every Drop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/images/logo.png" alt="Anivex Logo" class="h-12 w-auto" />
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-lg">
+        <a href="#about" class="nav-link hover:text-blue-600 transition" data-i18n="nav_about">About</a>
+        <a href="#products" class="nav-link hover:text-blue-600 transition" data-i18n="nav_products">Products</a>
+        <a href="#team" class="nav-link hover:text-blue-600 transition" data-i18n="nav_team">Team</a>
+        <a href="#contact" class="nav-link hover:text-blue-600 transition" data-i18n="nav_contact">Contact</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button onclick="toggleLanguage()" id="lang-toggle"
+                class="px-5 py-2 border border-blue-600 text-blue-600 rounded-full font-medium hover:bg-blue-50 transition">
+          मराठी
+        </button>
+        <button id="app-login" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-full flex items-center gap-2">
+          <i class="fas fa-user"></i> App Login
+        </button>
+      </div>
+    </div>
+  </nav>
+
+ <!-- Hero Section - Updated -->
+<section class="bg-gradient-to-br from-blue-50 via-white to-blue-50 min-h-screen flex items-center relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    
+    <!-- Left Content -->
+    <div class="space-y-6 pt-10">
+      <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-5 py-2 rounded-full text-sm font-medium">
+        <i class="fas fa-droplet"></i>
+        <span data-i18n="hero_premium">Premium Packaged Drinking Water</span>
+      </div>
+
+      <h1 class="text-6xl md:text-7xl font-bold leading-none text-blue-900">
+        ANIVEX <span class="text-orange-500">AQUA</span>
+      </h1>
+      
+      <p class="text-2xl text-blue-700 font-medium" data-i18n="hero_subtitle">Trusted Every Drop</p>
+      
+      <p class="text-3xl font-semibold text-slate-800 leading-tight">
+        <span data-i18n="hero_quote_left">"विश्वासाचे शुद्ध पाणी,</span>
+        <span class="text-orange-500" data-i18n="hero_quote_right">प्रत्येकासाठी!"</span>
+      </p>
+
+      <!-- Service Pills -->
+      <div class="flex flex-wrap gap-3 pt-4">
+        <div class="hero-pill hero-pill-blue"><i class="fas fa-tint"></i> <span data-i18n="pill_packaged">Packaged Water</span></div>
+        <div class="hero-pill hero-pill-cyan"><i class="fas fa-water"></i> <span data-i18n="pill_20l">20L Service</span></div>
+        <div class="hero-pill hero-pill-orange"><i class="fas fa-store"></i> <span data-i18n="pill_retail">Retail</span></div>
+        <div class="hero-pill hero-pill-amber"><i class="fas fa-box"></i> <span data-i18n="pill_wholesale">Wholesale</span></div>
+        <div class="hero-pill hero-pill-violet"><i class="fas fa-users"></i> <span data-i18n="pill_event">Event</span></div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap gap-4 pt-6">
+        <button onclick="openWhatsAppInquiry()" 
+                class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-9 py-4 rounded-full font-semibold flex items-center gap-3 text-lg shadow-xl shadow-blue-500/30">
+          <i class="fas fa-phone"></i> 
+          <span data-i18n="hero_cta_contact">चौकशी करा</span>
+        </button>
+        
+        <button onclick="openWhatsAppOrder()" 
+                class="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-9 py-4 rounded-full font-semibold flex items-center gap-3 text-lg">
+          <i class="fas fa-shopping-cart"></i> 
+          <span data-i18n="hero_cta_order">पाणी ऑर्डर करा</span>
+        </button>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex gap-8 pt-8">
+        <div><span class="text-4xl font-bold text-blue-900">5000+</span><br><span class="text-sm text-gray-600" data-i18n="stat_customers">Customers</span></div>
+        <div><span class="text-4xl font-bold text-blue-900">20+</span><br><span class="text-sm text-gray-600" data-i18n="stat_towns">Towns</span></div>
+        <div><span class="text-green-600 text-4xl">✅</span><br><span class="text-sm text-gray-600" data-i18n="stat_certified">ISI Certified</span></div>
+      </div>
+    </div>
+
+    <!-- Right Side - Product Showcase (Pop on Scroll) -->
+    <div class="relative flex justify-center">
+      <div id="product-showcase" class="bg-white p-8 rounded-3xl shadow-2xl transition-all duration-700 hover:scale-105">
+        <img src="assets/images/anivex-bottles.jpg" 
+             alt="Anivex Water Bottles" 
+             class="w-full max-w-md mx-auto rounded-2xl shadow-lg">
+        
+        <!-- Bottle Size Labels -->
+        <div class="grid grid-cols-4 gap-2 mt-6 text-center text-sm">
+          <div>250ml</div>
+          <div>500ml</div>
+          <div>750ml</div>
+          <div>1L</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid gap-14 lg:grid-cols-2 lg:items-start">
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-3">
+            <span class="block h-1.5 w-14 rounded-full bg-orange-400"></span>
+            <p class="text-sm font-semibold uppercase tracking-[0.35em] text-blue-600" data-i18n="about_label">Our Perspective</p>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 leading-tight">
+            <span class="heading-line1 block">
+              <span data-i18n="about_heading_part1"></span>
+              <span class="em-orange mx-2" data-i18n="about_heading_em"></span>
+              <span data-i18n="about_heading_part2"></span>
+            </span>
+            <span class="heading-line2 block em-blue mt-2" data-i18n="about_heading_part3"></span>
+          </h2>
+          <p class="text-lg leading-8 text-slate-600" data-i18n="about_intro">आमची गोष्ट पदार्थाप्रमाणे सुरू झाली नाही — ती एका छोट्या गावाच्या हळुवार प्रेमातून वाढली आहे. आम्ही प्रत्येक थेंबाला शुद्धतेचा वचन देतो.</p>
+
+          <div class="grid gap-5">
+            <div class="about-card rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm">
+              <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-blue-600 shadow-sm">🌿</div>
+              <h3 class="mt-5 text-xl font-semibold" data-i18n="about_card1_title">नव पुढाकार</h3>
+              <p class="mt-3 text-slate-600 text-sm" data-i18n="about_card1_body">आम्ही नेहमी पारदर्शकता आणि विश्वासावर आधारित पाणी पुरवतो, गावातील लोकांसाठी समाधान तयार करतो.</p>
+            </div>
+
+            <div class="about-quote-pill rounded-3xl bg-slate-900 p-7 text-white shadow-2xl">
+              <p class="text-lg font-semibold" data-i18n="about_quote">"जर आपण नाही, तर आपल्या माणसांसाठी कोण करणार?"</p>
+            </div>
+
+            <div class="grid gap-5 lg:grid-cols-2">
+              <div class="about-card rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm">
+                <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-blue-600 shadow-sm">💡</div>
+                <h3 class="mt-5 text-xl font-semibold" data-i18n="about_card2_title">उद्देशाचा जन्म</h3>
+                <p class="mt-3 text-slate-600 text-sm" data-i18n="about_card2_body">समाजाचे पाणी स्वच्छ करण्याची संकल्पना आमच्या वाटचालीला आकार देते.</p>
+              </div>
+              <div class="about-card rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm">
+                <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-blue-600 shadow-sm">🚀</div>
+                <h3 class="mt-5 text-xl font-semibold" data-i18n="about_card3_title">ध्येयाचे एक पाऊल</h3>
+                <p class="mt-3 text-slate-600 text-sm" data-i18n="about_card3_body">घर, दवाखाना, दुकाने आणि शाळांपर्यंत शुद्ध पाणी पोहोचवणे आमचे ध्येय आहे.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-6 rounded-[2.5rem] border border-slate-200 bg-slate-50 p-8 shadow-xl">
+           <!-- About Right Card - Clear & Professional -->
+            <div class="about-right-card rounded-3xl bg-gradient-to-br from-blue-700 to-blue-600 p-10 text-white shadow-2xl">
+              <p class="text-sm uppercase tracking-widest text-blue-100 mb-5 font-semibold" data-i18n="about_right_tag">आमचे मूल्य</p>
+              
+              <h3 class="text-3xl md:text-4xl font-bold leading-tight mb-6 text-white" data-i18n="about_right_title">
+                पाणी म्हणजे जीवन, प्रत्येक थेंबात निष्ठा.
+              </h3>
+              
+              <p class="text-blue-50 text-lg leading-relaxed" data-i18n="about_right_body">
+                आम्ही स्थानिक समुदायासाठी स्वच्छ, प्रमाणित आणि विश्वासार्ह पाणी पुरवण्यावर लक्ष केंद्रित करतो. प्रत्येक बाटली कठोर चाचणी आणि सुरक्षित पॅकिंग पासून तयार होते.
+              </p>
+            </div>
+          <div class="about-values rounded-3xl bg-white p-8 shadow-sm">
+            <h4 class="text-xl font-semibold text-slate-900 mb-5" data-i18n="about_right_list_title">आमचे मुख्य मुद्दे</h4>
+            <ul class="space-y-4 text-slate-600">
+              <li class="flex gap-3"><span class="mt-1 text-blue-600">✔️</span> <span data-i18n="about_value1">उच्चतम दर्जाचे पाणी</span></li>
+              <li class="flex gap-3"><span class="mt-1 text-blue-600">✔️</span> <span data-i18n="about_value2">स्थिर आणि सुरक्षित वितरण</span></li>
+              <li class="flex gap-3"><span class="mt-1 text-blue-600">✔️</span> <span data-i18n="about_value3">स्थानिक रोजगार आणि न्याय्य व्यवहार</span></li>
+              <li class="flex gap-3"><span class="mt-1 text-blue-600">✔️</span> <span data-i18n="about_value4">पर्यावरणाबद्दल संवेदनशीलता</span></li>
+            </ul>
+          </div>
+          <div class="about-cta overflow-hidden rounded-3xl bg-gradient-to-r from-blue-700 to-sky-600 p-8 text-white shadow-2xl">
+            <p class="text-sm uppercase tracking-[0.35em] text-sky-100/80 mb-3" data-i18n="about_cta_label">विश्वासाचा निर्धार</p>
+            <h3 class="text-2xl font-bold mb-4" data-i18n="about_cta_heading">प्रत्येक थेंबत विश्वास पोहोचवणे — आणि प्रत्येक घडवणे.</h3>
+            <p class="text-sky-100/90" data-i18n="about_cta_body">आमच्या प्रत्येक पावलावर शुद्धता आणि जबाबदारी हीच प्राथमिकता आहे.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality & Process -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div>
+          <h2 class="text-4xl font-bold text-blue-900 mb-4" data-i18n="quality_title">Purity You Can Count On</h2>
+          <p class="text-gray-600 mb-8" data-i18n="quality_subtitle">Our water is purified, tested, and packaged with care so every bottle delivers safe, refreshing hydration for your family and business.</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="bg-white p-6 rounded-3xl shadow hover:shadow-2xl transition">
+              <div class="text-blue-600 text-4xl mb-4">🧪</div>
+              <h3 class="font-semibold text-xl mb-2" data-i18n="quality_lab_title">Lab Tested</h3>
+              <p class="text-gray-600 text-sm" data-i18n="quality_lab_desc">Regular quality checks ensure every batch meets the highest safety standards.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow hover:shadow-2xl transition">
+              <div class="text-blue-600 text-4xl mb-4">💧</div>
+              <h3 class="font-semibold text-xl mb-2" data-i18n="quality_filter_title">Advanced Filtration</h3>
+              <p class="text-gray-600 text-sm" data-i18n="quality_filter_desc">RO, UV and mineral balancing deliver pure water with natural taste.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow hover:shadow-2xl transition">
+              <div class="text-blue-600 text-4xl mb-4">🛡️</div>
+              <h3 class="font-semibold text-xl mb-2" data-i18n="quality_pack_title">Secure Packaging</h3>
+              <p class="text-gray-600 text-sm" data-i18n="quality_pack_desc">Tamper-evident seals and hygienic packing keep every bottle safe.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow hover:shadow-2xl transition">
+              <div class="text-blue-600 text-4xl mb-4">🚚</div>
+              <h3 class="font-semibold text-xl mb-2" data-i18n="quality_delivery_title">Fast Delivery</h3>
+              <p class="text-gray-600 text-sm" data-i18n="quality_delivery_desc">Reliable local delivery across nearby towns and neighborhoods.</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative overflow-hidden rounded-[2.5rem] bg-blue-600 p-10 text-white shadow-2xl">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.18),_transparent_35%)]"></div>
+          <div class="relative">
+            <p class="text-sm uppercase tracking-[0.35em] text-blue-100/80 mb-6" data-i18n="quality_tagline">Trusted Water Solutions</p>
+            <h3 class="text-3xl font-bold mb-4" data-i18n="quality_right_title">Clean, Certified, and Delivered</h3>
+            <p class="text-blue-100/90 mb-8" data-i18n="quality_right_body">From source to bottle, we keep every step transparent so you always get water you can trust.</p>
+            <ul class="space-y-4 text-blue-100/90">
+              <li class="flex gap-3 items-start"><span class="mt-1 text-2xl">✅</span> <span data-i18n="quality_right_point1">ISO & ISI approved production standards</span></li>
+              <li class="flex gap-3 items-start"><span class="mt-1 text-2xl">✅</span> <span data-i18n="quality_right_point2">Daily hygiene audits and staff training</span></li>
+              <li class="flex gap-3 items-start"><span class="mt-1 text-2xl">✅</span> <span data-i18n="quality_right_point3">24/7 customer support for orders and delivery</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Leadership Team -->
+<section id="team" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <div class="inline-block rounded-full bg-slate-100/60 px-4 py-2 text-sm text-slate-600 mb-6" data-i18n="team_pill">आमची टीम</div>
+      <h2 class="team-heading text-5xl font-extrabold text-center text-blue-900" data-i18n="team_title_part1">Meet The People Behind <span class="team-brand text-orange-400" data-i18n="team_title_brand">Anivex</span></h2>
+      <p class="mt-3 text-sm text-slate-500" data-i18n="team_subtitle">"Anivex मागे विश्वास निर्माण करणारे उत्साही लोक."</p>
+    </div>
+    <div class="team-slider">
+      <div class="team-track" id="team-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+    <div class="team-controls flex items-center justify-center gap-6 mt-8">
+      <button id="team-prev" class="team-arrow" aria-label="Previous member">‹</button>
+      <div class="team-nav" id="team-dots" aria-hidden="false"></div>
+      <button id="team-next" class="team-arrow" aria-label="Next member">›</button>
+    </div>
+  </div>
+</section>
+
+  <!-- Contact / Footer Section -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-4" data-i18n="contact_title">Contact Us</h2>
+      <p class="text-center text-gray-600 mb-12" data-i18n="contact_subtitle">Reach out for orders and inquiries</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-3xl mb-4">📞</div>
+          <h3 class="font-semibold" data-i18n="contact_phone">Phone</h3>
+          <p class="text-blue-600 mt-2">+91 9730619511</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-3xl mb-4">✉️</div>
+          <h3 class="font-semibold" data-i18n="contact_email">Email</h3>
+          <p class="text-blue-600 mt-2">info@anivex.com</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl shadow text-center">
+          <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-3xl mb-4">📍</div>
+          <h3 class="font-semibold" data-i18n="contact_address">Address</h3>
+          <p class="text-blue-600 mt-2 text-sm">Anivex Water Plant,<br>Berali ,Mukhed,Nanded, Maharashtra, India</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-blue-950 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <img src="assets/images/logo.png" alt="Anivex" class="h-12 mx-auto mb-4 opacity-90" />
+      <p class="text-blue-400" data-i18n="footer_tagline">Pure Water • Pure Trust</p>
+      <p class="mt-8 text-sm opacity-70" data-i18n="footer_copyright">© 2026 Anivex Water Solutions. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
