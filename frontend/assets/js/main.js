@@ -304,7 +304,7 @@ function initTeamSlider() {
 }
 
 // WhatsApp Functions
-const whatsappNumber = "9730619511";   // Change this to your number
+const whatsappNumber = "919730619511";   // Change this to your number
 
 function openWhatsAppInquiry() {
   const message = "Hello Anivex, I would like to inquire about your water services.";
